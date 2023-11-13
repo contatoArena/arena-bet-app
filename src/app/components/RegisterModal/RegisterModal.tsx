@@ -1,5 +1,21 @@
 import React from 'react'
 
-export default function RegisterModal() {
-  return <div>RegisterModal</div>
+interface RegisterModalProps {
+  isOpen: boolean
+  onClose: () => void
 }
+
+const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose }) => {
+  return (
+    <div>
+      {isOpen ? (
+        <>
+          <div>Conteúdo do Modal</div>
+          <button onClick={onClose}>Fechar Modal</button>
+        </>
+      ) : null}
+    </div>
+  )
+}
+
+export default RegisterModal

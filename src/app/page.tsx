@@ -1,7 +1,19 @@
-import Image from 'next/image'
+'use client'
+import React, { useState } from 'react'
 import RegisterModal from './components/RegisterModal/RegisterModal'
 
-export default function Home() {
+const Home = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true)
+    console.log('abriu')
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+  }
+
   return (
     <>
       <header className="flex justify-between items-center px-10 py-7 bg-primary">
@@ -19,11 +31,14 @@ export default function Home() {
               id="username"
               placeholder="Usuário"
             />
-            <p className="pt-2 cursor-pointer">Criar conta</p>
+            {/* Abrir o modal ao clicar no texto */}
+            <p className="pt-2 cursor-pointer" onClick={handleOpenModal}>
+              Criar conta
+            </p>
           </div>
           <div className="mr-4">
             <input
-              className="p-2 rounded-md "
+              className="p-2 rounded-md"
               type="text"
               name="password"
               id="password"
@@ -38,6 +53,10 @@ export default function Home() {
           </div>
         </section>
       </header>
+      {/* Componente do Modal de Registro */}
+      <RegisterModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </>
   )
 }
+
+export default Home
