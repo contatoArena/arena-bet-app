@@ -16,13 +16,20 @@ const RegistrationForm = ({ isOpen, onClose }: any) => {
   return (
     <Container>
       <div
-        className={`fixed inset-0 flex items-center justify-center transition-opacity duration-150 ${
+        className={`fixed inset-0 flex items-center justify-center transition-opacity duration-300 ${
           isOpen
             ? 'opacity-100 pointer-events-auto'
             : 'opacity-0 pointer-events-none'
         }`}
       >
-        <Paper elevation={3} className="p-5 w-96">
+        {/* Fundo preto transparente */}
+        <div
+          className={`fixed inset-0 bg-black opacity-50 ${
+            isOpen ? 'block' : 'hidden'
+          }`}
+        ></div>
+
+        <Paper elevation={3} className="p-5 w-96 relative">
           <Button className="self-end" onClick={onClose}>
             X
           </Button>
