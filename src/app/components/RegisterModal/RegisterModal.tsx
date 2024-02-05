@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Button,
   TextField,
@@ -13,6 +13,8 @@ import {
 import Image from 'next/image'
 
 const RegistrationForm = ({ isOpen, onClose }: any) => {
+  const [firstRegister, setFirstRegister] = useState('')
+
   return (
     <Container>
       <div
@@ -48,69 +50,6 @@ const RegistrationForm = ({ isOpen, onClose }: any) => {
                   height={300}
                 />
               </div>
-            </Grid>
-            <Grid item xs={12}>
-              <form>
-                <TextField
-                  fullWidth
-                  label="Email"
-                  variant="outlined"
-                  margin="normal"
-                />
-                <TextField
-                  fullWidth
-                  label="Senha"
-                  variant="outlined"
-                  margin="normal"
-                  type="password"
-                />
-                <TextField
-                  fullWidth
-                  label="Confirmação de Senha"
-                  variant="outlined"
-                  margin="normal"
-                  type="password"
-                />
-                <TextField
-                  fullWidth
-                  label="Endereço"
-                  variant="outlined"
-                  margin="normal"
-                />
-                <TextField
-                  fullWidth
-                  label="Data de Nascimento"
-                  variant="outlined"
-                  margin="normal"
-                  type="date"
-                  InputLabelProps={{
-                    shrink: true,
-                    style: { marginTop: '8px' },
-                  }}
-                />
-                <TextField
-                  fullWidth
-                  label="CPF"
-                  variant="outlined"
-                  margin="normal"
-                />
-                <FormControl fullWidth variant="outlined" margin="normal">
-                  <InputLabel>Genero</InputLabel>
-                  <Select label="Genero">
-                    <MenuItem value="masculino">Masculino</MenuItem>
-                    <MenuItem value="feminino">Feminino</MenuItem>
-                    <MenuItem value="outro">Outro</MenuItem>
-                  </Select>
-                </FormControl>
-                <Button
-                  variant="contained"
-                  className="bg-primary"
-                  fullWidth
-                  type="submit"
-                >
-                  Registrar
-                </Button>
-              </form>
             </Grid>
           </Grid>
         </Paper>
