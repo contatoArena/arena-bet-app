@@ -6,19 +6,21 @@ import Image from 'next/image'
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [darkMode, setDarkMode] = useState(false)
+  const [firstRegister, setFirstRegister] = useState(true)
 
   const handleOpenModal = () => {
     setIsModalOpen(true)
-    console.log('abriu')
   }
 
   const handleCloseModal = () => {
     setIsModalOpen(false)
+    setTimeout(() => {
+      setFirstRegister(false)
+    }, 3000)
   }
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode)
-    // Lógica adicional para alternar o modo escuro
   }
 
   return (
@@ -75,7 +77,12 @@ const Home = () => {
         </section>
       </header>
       {/* Componente do Modal de Registro */}
-      <RegisterModal isOpen={isModalOpen} onClose={handleCloseModal} />
+      <RegisterModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        setFirstRegister={setFirstRegister}
+        firstRegister={firstRegister}
+      />
       <button
         className={`absolute bottom-4 left-4 bg-primary text-white p-2 rounded-md font-bold ${
           darkMode ? 'bg-secondary text-white' : ''
